@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: /React-Tutorial
     permissions:
       pages: write
       id-token: write
@@ -21,7 +21,7 @@ jobs:
       - name: build app
         run: npm run build
         env:
-          PUBLIC_URL: /react
+          PUBLIC_URL: /react-tutorial
       - name: upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
