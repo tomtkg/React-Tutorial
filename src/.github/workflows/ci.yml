@@ -1,0 +1,27 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: /react-tutorial
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: setup
+        uses: actions/checkout@v3
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+        run: npm ci
+        run: npm run build
+        env:
+          PUBLIC_URL: /react
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./build
+      - name: deploy to github pages
+        id: deployment
+        uses: actions/deploy-pages@v1
