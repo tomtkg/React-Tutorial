@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 
 const file = "https://raw.githubusercontent.com/tomtkg/React-Tutorial/main/README.md"
 
-export default function () {
+export default function Top () {
   const [markdown, setMarkdown] = useState("");
 
   useEffect(() => {
