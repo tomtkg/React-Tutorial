@@ -1,5 +1,5 @@
 {
-  "homepage": "https://https://tomtkg.github.io/React-Tutorial/",
+  "homepage": "https://tomtkg.github.io/React-Tutorial",
   "name": "react-tutorial",
   "version": "0.1.0",
   "private": true,
@@ -32,7 +32,7 @@
       "react-app/jest"
     ],
     "rules": {
-      "no-unused-vars": "off"
+      "@typescript-eslint/no-unused-vars": "off"
     }
   },
   "browserslist": {
