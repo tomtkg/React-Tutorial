@@ -1,31 +1,29 @@
 name: CI
 on: [push, pull_request]
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: /React-Tutorial
-    permissions:
-      pages: write
-      id-token: write
     steps:
-      - name: checkout
-        uses: actions/checkout@v3
-      - name: setup node
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 18.x
-      - name: install dependencies
-        run: npm ci
-      - name: build app
-        run: npm run build
+      - run: npm ci
+      - run: npm run build
         env:
           PUBLIC_URL: /react-tutorial
-      - name: upload artifact
-        uses: actions/upload-pages-artifact@v1
+      - uses: actions/upload-pages-artifact@v1
         with:
           path: ./build
-      - name: deploy to github pages
+  deploy:
+    needs: build
+    permissions:
+      id-token: write
+      pages: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/deploy-pages@v2
         id: deployment
-        uses: actions/deploy-pages@v2
