@@ -11,7 +11,7 @@ jobs:
       - run: npm ci
       - run: npm run build
         env:
-          PUBLIC_URL: /react-tutorial
+          PUBLIC_URL: /React-Tutorial
       - uses: actions/upload-pages-artifact@v1
         with:
           path: ./build
