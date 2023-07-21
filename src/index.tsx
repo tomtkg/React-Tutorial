@@ -8,7 +8,7 @@ import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 
 const View = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div style={{ display: "flex" }}>
         <div style={{ padding: "10px", width: "500px", background: "#f0f0f0" }}>
           {pages.map((page) => (
