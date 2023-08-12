@@ -17,9 +17,13 @@ The top page displays README.md using [react-markdown](https://www.npmjs.com/pac
 
 ## Installation & Startup
 Install Node.js from [here](https://nodejs.org/en).
-* npx create-react-app React-Tutorial --template typescript
-* npm install react-router-dom react-markdown
-* npm start
+```bash
+npm install -g npx
+npx create-react-app react-tutorial --template typescript
+npm install react-router-dom react-markdown
+cd react-tutorial
+npm start
+```
 
 ## Build & Deploy
 Use GitHub Actions like [this](https://github.com/tomtkg/React-Tutorial/actions).
